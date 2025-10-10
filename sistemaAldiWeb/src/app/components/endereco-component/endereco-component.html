@@ -1,0 +1,121 @@
+<!-- Um container que dá um fundo suave para a página inteira -->
+<div class="form-background">
+
+  <!-- O cartão principal que contém o formulário -->
+  <div class="form-card shadow-lg">
+
+    <!-- Cabeçalho do Cartão -->
+    <div class="card-header">
+      <h2 class="mb-0">
+        <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
+        Cadastro de Endereço
+      </h2>
+      <p class="text-muted mb-0">Preencha os dados para criar uma novo Endereço no sistema.</p>
+    </div>
+
+    <!-- Corpo do Cartão com o Formulário -->
+    <div class="card-body">
+      <!-- A tag <form> com o binding [formGroup] e o evento (ngSubmit) -->
+      <form [formGroup]="enderecoForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="cep" class="form-label">Cep</label>
+            <input type="text" id="cep" class="form-control" formControlName="cep" placeholder="Ex: 00000000">
+            <div *ngIf="isInvalid('cep')" class="invalid-feedback d-block">
+              A Cep é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="logradouro" class="form-label">Logradouro</label>
+            <input type="text" id="logradouro" class="form-control" formControlName="logradouro" placeholder="Ex: R. das flores">
+            <div *ngIf="isInvalid('logradouro')" class="invalid-feedback d-block">
+              O logradouro é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="numero" class="form-label">Número</label>
+            <input type="text" id="numero" class="form-control" formControlName="numero" placeholder="Ex: 000">
+            <div *ngIf="isInvalid('numero')" class="invalid-feedback d-block">
+              O Número é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="complemento" class="form-label">Complemento</label>
+            <input type="text" id="complemento" class="form-control" formControlName="complemento" placeholder="Ex: Casa">
+            <div *ngIf="isInvalid('complemento')" class="invalid-feedback d-block">
+              O Complemento é obrigatório.
+            </div>
+          </div>
+        </div>
+
+                <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="bairro" class="form-label">Bairro</label>
+            <input type="text" id="bairro" class="form-control" formControlName="bairro" placeholder="Ex: Nobre">
+            <div *ngIf="isInvalid('bairro')" class="invalid-feedback d-block">
+              O Bairro é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="cidade" class="form-label">Cidade</label>
+            <input type="text" id="cidade" class="form-control" formControlName="cidade" placeholder="Ex: Bonita">
+            <div *ngIf="isInvalid('cidade')" class="invalid-feedback d-block">
+              A cidade é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        
+                <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="estado" class="form-label">Estado(UF)</label>
+            <input type="text" id="estado" class="form-control" formControlName="estado" placeholder="Ex: MG">
+            <div *ngIf="isInvalid('estado')" class="invalid-feedback d-block">
+              O Estado obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="pais" class="form-label">País</label>
+            <input type="text" id="pais" class="form-control" formControlName="pais" placeholder="Ex: Brasil">
+            <div *ngIf="isInvalid('pais')" class="invalid-feedback d-block">
+              A País é obrigatório.
+            </div>
+          </div>
+        </div>
+         <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="latitude" class="form-label">Latitude</label>
+            <input type="text" id="latitude" class="form-control" formControlName="latitude" placeholder="Ex: 00000000">
+            <div *ngIf="isInvalid('latitude')" class="invalid-feedback d-block">
+            A Latitude é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="longitude" class="form-label">Longitude</label>
+            <input type="text" id="longitude" class="form-control" formControlName="longitude" placeholder="Ex: 00000000">
+            <div *ngIf="isInvalid('longitude')" class="invalid-feedback d-block">
+              A longitude é obrigatória.
+            </div>
+          </div>
+              
+        </div>
+        <!-- Divisor -->
+        <hr class="my-4">
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-submit" [disabled]="enderecoForm.invalid">
+            <i class="bi bi-check-lg me-1"></i>
+            Salvar Endereço
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
