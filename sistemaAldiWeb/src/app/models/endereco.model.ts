@@ -1,4 +1,4 @@
-    export interface IModulo {
+    export interface Endereco {
   // Propriedades que vêm do formulário e são enviadas para a API
   cep: string;
   logradouro: string;

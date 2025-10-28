@@ -54,7 +54,7 @@ export class ModuloComponent implements OnInit {
         this.moduloForm.reset({ ativo: true, ordem: 0 }); // Limpa o formulário, mantendo valores padrão
       },
       error: (err) => {
-        alert('Erro ao cadastrar módulo. Verifique o console.');
+        alert('Erro ao cadastrar Módulo. Verifique o console.');
         console.error('Erro da API:', err);
       }
     });

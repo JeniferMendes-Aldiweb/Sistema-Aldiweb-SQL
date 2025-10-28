@@ -1,0 +1,121 @@
+<!-- Um container que dá um fundo suave para a página inteira -->
+<div class="form-background">
+
+  <!-- O cartão principal que contém o formulário -->
+  <div class="form-card shadow-lg">
+
+    <!-- Cabeçalho do Cartão -->
+    <div class="card-header">
+      <h2 class="mb-0">
+        <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
+        Cadastro de Contato
+      </h2>
+      <p class="text-muted mb-0">Preencha os dados para criar um Contato no sistema.</p>
+    </div>
+
+    <!-- Corpo do Cartão com o Formulário -->
+    <div class="card-body">
+      <!-- A tag <form> com o binding [formGroup] e o evento (ngSubmit) -->
+      <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="organizacao_id" class="form-label">ID da Organização</label>
+            <input type="text" id="organizacao_id" class="form-control" formControlName="organizacao_id"
+              placeholder="Ex: 0">
+            <div *ngIf="isInvalid('organizacao_id')" class="invalid-feedback d-block">
+              O ID da Organização é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="nome" class="form-label">Nome do Contato</label>
+            <input type="text" id="nome" class="form-control" formControlName="nome" placeholder="Ex: José">
+            <div *ngIf="isInvalid('nome')" class="invalid-feedback d-block">
+              O nome é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="cargo" class="form-label">Cargo</label>
+            <input type="text" id="cargo" class="form-control" formControlName="cargo" placeholder="Ex: Gerente TI">
+            <div *ngIf="isInvalid('cargo')" class="invalid-feedback d-block">
+              O Cargo é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" id="email" class="form-control" formControlName="email"
+              placeholder="Ex: contato@aldiweb.com.br">
+            <div *ngIf="isInvalid('email')" class="invalid-feedback d-block">
+              O Email é obrigatório.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" id="telefone" class="form-control" formControlName="telefone"
+              placeholder="Ex: (31) 92345-6789">
+            <div *ngIf="isInvalid('telefone')" class="invalid-feedback d-block">
+              O Telefone é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="celular" class="form-label">Celular</label>
+            <input type="text" id="celular" class="form-control" formControlName="celular"
+              placeholder="Ex: (31) 92345-6789">
+            <div *ngIf="isInvalid('celular')" class="invalid-feedback d-block">
+              O Celular é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="departamento" class="form-label">Departamento</label>
+            <input type="text" id="departamento" class="form-control" formControlName="departamento"
+              placeholder="Ex: Tecnologia">
+            <div *ngIf="isInvalid('departamento')" class="invalid-feedback d-block">
+              O Departamento é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="observacoes" class="form-label">Observações</label>
+            <input type="text" id="observacoes" class="form-control" formControlName="observacoes"
+              placeholder="Ex: Especialista em Banco de Dados">
+            <div *ngIf="isInvalid('observacoes')" class="invalid-feedback d-block">
+              A Observação é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="principal" formControlName="principal">
+          <label class="form-check-label" for="principal">Contato Principal</label>
+        </div>
+
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="ativo" formControlName="ativo">
+          <label class="form-check-label" for="ativo">Contato Ativo</label>
+        </div>
+
+        <!-- Divisor -->
+        <hr class="my-4">
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-submit" [disabled]="contatoForm.invalid">
+            <i class="bi bi-check-lg me-1"></i>
+            Salvar Contato
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

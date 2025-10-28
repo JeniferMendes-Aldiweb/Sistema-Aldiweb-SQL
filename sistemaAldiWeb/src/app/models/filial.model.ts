@@ -1,4 +1,4 @@
-    export interface IModulo {
+    export interface Filial {
   // Propriedades que vêm do formulário e são enviadas para a API
   coligada_id: string;
   codigo: string;

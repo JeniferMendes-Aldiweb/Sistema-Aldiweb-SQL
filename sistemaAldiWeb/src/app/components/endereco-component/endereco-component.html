@@ -10,7 +10,7 @@
         <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
         Cadastro de Endereço
       </h2>
-      <p class="text-muted mb-0">Preencha os dados para criar uma novo Endereço no sistema.</p>
+      <p class="text-muted mb-0">Preencha os dados para criar um novo Endereço no sistema.</p>
     </div>
 
     <!-- Corpo do Cartão com o Formulário -->
@@ -28,7 +28,8 @@
           </div>
           <div class="col-md-6">
             <label for="logradouro" class="form-label">Logradouro</label>
-            <input type="text" id="logradouro" class="form-control" formControlName="logradouro" placeholder="Ex: R. das flores">
+            <input type="text" id="logradouro" class="form-control" formControlName="logradouro"
+              placeholder="Ex: R. das flores">
             <div *ngIf="isInvalid('logradouro')" class="invalid-feedback d-block">
               O logradouro é obrigatório.
             </div>
@@ -45,14 +46,15 @@
           </div>
           <div class="col-md-6">
             <label for="complemento" class="form-label">Complemento</label>
-            <input type="text" id="complemento" class="form-control" formControlName="complemento" placeholder="Ex: Casa">
+            <input type="text" id="complemento" class="form-control" formControlName="complemento"
+              placeholder="Ex: Casa">
             <div *ngIf="isInvalid('complemento')" class="invalid-feedback d-block">
               O Complemento é obrigatório.
             </div>
           </div>
         </div>
 
-                <div class="row mb-3">
+        <div class="row mb-3">
           <div class="col-md-6">
             <label for="bairro" class="form-label">Bairro</label>
             <input type="text" id="bairro" class="form-control" formControlName="bairro" placeholder="Ex: Nobre">
@@ -69,8 +71,8 @@
           </div>
         </div>
 
-        
-                <div class="row mb-3">
+
+        <div class="row mb-3">
           <div class="col-md-6">
             <label for="estado" class="form-label">Estado(UF)</label>
             <input type="text" id="estado" class="form-control" formControlName="estado" placeholder="Ex: MG">
@@ -86,22 +88,23 @@
             </div>
           </div>
         </div>
-         <div class="row mb-3">
+        <div class="row mb-3">
           <div class="col-md-6">
             <label for="latitude" class="form-label">Latitude</label>
             <input type="text" id="latitude" class="form-control" formControlName="latitude" placeholder="Ex: 00000000">
             <div *ngIf="isInvalid('latitude')" class="invalid-feedback d-block">
-            A Latitude é obrigatória.
+              A Latitude é obrigatória.
             </div>
           </div>
           <div class="col-md-6">
             <label for="longitude" class="form-label">Longitude</label>
-            <input type="text" id="longitude" class="form-control" formControlName="longitude" placeholder="Ex: 00000000">
+            <input type="text" id="longitude" class="form-control" formControlName="longitude"
+              placeholder="Ex: 00000000">
             <div *ngIf="isInvalid('longitude')" class="invalid-feedback d-block">
               A longitude é obrigatória.
             </div>
           </div>
-              
+
         </div>
         <!-- Divisor -->
         <hr class="my-4">

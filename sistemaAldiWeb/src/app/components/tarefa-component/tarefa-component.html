@@ -1,0 +1,182 @@
+<!-- Um container que dá um fundo suave para a página inteira -->
+<div class="form-background">
+
+  <!-- O cartão principal que contém o formulário -->
+  <div class="form-card shadow-lg">
+
+    <!-- Cabeçalho do Cartão -->
+    <div class="card-header">
+      <h2 class="mb-0">
+        <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
+        Cadastro de Tarefas
+      </h2>
+      <p class="text-muted mb-0">Preencha os dados para criar uma nova Tarefa no sistema.</p>
+    </div>
+
+    <!-- Corpo do Cartão com o Formulário -->
+    <div class="card-body">
+      <!-- A tag <form> com o binding [formGroup] e o evento (ngSubmit) -->
+      <form [formGroup]="tarefaForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="atividade_id" class="form-label">ID Atividade</label>
+            <input type="text" id="atividade_id" class="form-control" formControlName="atividade_id"
+              placeholder="Ex: 1">
+            <div *ngIf="isInvalid('atividade_id')" class="invalid-feedback d-block">
+              O ID Atividade é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="codigo" class="form-label">Código</label>
+            <input type="text" id="codigo" class="form-control" formControlName="codigo" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('codigo')" class="invalid-feedback d-block">
+              O código é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="titulo" class="form-label">Título da Tarefa</label>
+            <input type="text" id="titulo" class="form-control" formControlName="titulo" placeholder="Ex: AldiWeb">
+            <div *ngIf="isInvalid('titulo')" class="invalid-feedback d-block">
+              O Título é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" id="descricao" class="form-control" formControlName="descricao"
+              placeholder="Ex: Projeto interno AldiWeb">
+            <div *ngIf="isInvalid('descricao')" class="invalid-feedback d-block">
+              A Descrição é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="ordem" class="form-label">Ordem</label>
+            <input type="text" id="ordem" class="form-control" formControlName="ordem" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('ordem')" class="invalid-feedback d-block">
+              A Ordem é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="data_inicio" class="form-label">Data de Início</label>
+            <input type="date" id="data_inicio" class="form-control" formControlName="data_inicio"
+              placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('data_inicio')" class="invalid-feedback d-block">
+              A Data de Início é obrigatória.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="data_fim_prevista" class="form-label">Previsão Data Final</label>
+            <input type="date" id="data_fim_prevista" class="form-control" formControlName="data_fim_prevista"
+              placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('data_fim_prevista')" class="invalid-feedback d-block">
+              A Previsão da Data Final é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="data_fim_real" class="form-label">Data Final Real</label>
+            <input type="date" id="data_fim_real" class="form-control" formControlName="data_fim_real"
+              placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('data_fim_real')" class="invalid-feedback d-block">
+              A Data Final Real é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="horas_estimadas" class="form-label">Horas Estimadas</label>
+            <input type="text" id="horas_estimadas" class="form-control" formControlName="horas_estimadas"
+              placeholder="Ex: 100:00">
+            <div *ngIf="isInvalid('horas_estimadas')" class="invalid-feedback d-block">
+              O Valor Orçado é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="horas_realizadas" class="form-label">Horas Realizadas</label>
+            <input type="text" id="horas_realizadas" class="form-control" formControlName="horas_realizadas"
+              placeholder="Ex: 100:00">
+            <div *ngIf="isInvalid('horas_realizadas')" class="invalid-feedback d-block">
+              As Horas Realizadas são obrigatórias.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="prioridade" class="form-label">Prioridade</label>
+            <input type="text" id="prioridade" class="form-control" formControlName="prioridade" placeholder="Ex: ALTA">
+            <div *ngIf="isInvalid('prioridade')" class="invalid-feedback d-block">
+              A Prioridade é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="percentual_conclusao" class="form-label">Percentual Conclusão</label>
+            <input type="text" id="percentual_conclusao" class="form-control" formControlName="percentual_conclusao"
+              placeholder="Ex: 0 a 100%">
+            <div *ngIf="isInvalid('percentual_conclusao')" class="invalid-feedback d-block">
+              O Percentual De Conclusão é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="status_id" class="form-label">Status ID</label>
+            <input type="text" id="status_id" class="form-control" formControlName="status_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('status_id')" class="invalid-feedback d-block">
+              O Status ID é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="tarefa_predecessora_id" class="form-label">ID Tarefa Predecessora</label>
+            <input type="text" id="tarefa_predecessora_id" class="form-control" formControlName="tarefa_predecessora_id"
+              placeholder="Ex: 1">
+            <div *ngIf="isInvalid('tarefa_predecessora_id')" class="invalid-feedback d-block">
+              O ID Tarefa Predecessora é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="observacoes" class="form-label">Observações</label>
+            <input type="text" id="observacoes" class="form-control" formControlName="observacoes"
+              placeholder="Ex: Observações">
+            <div *ngIf="isInvalid('observacoes')" class="invalid-feedback d-block">
+              A Observação é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkbox 'Ativo' -->
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="ativo" formControlName="ativo">
+          <label class="form-check-label" for="ativo">Tarefa Ativa</label>
+        </div>
+
+        <!-- Divisor -->
+        <hr class="my-4">
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-submit" [disabled]="tarefaForm.invalid">
+            <i class="bi bi-check-lg me-1"></i>
+            Salvar Tarefa
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

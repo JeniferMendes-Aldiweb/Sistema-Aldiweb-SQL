@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Variável para a cor laranja principal, facilitando a manutenção
 $cor-laranja: #FF6600;
 
@@ -44,7 +46,7 @@ $cor-laranja: #FF6600;
 
 // Foco dos inputs com a cor laranja
 .form-control:focus {
-  border-color: lighten($cor-laranja, 25%);
+  border-color: color.adjust($cor-laranja, $lightness: 25%);
   box-shadow: 0 0 0 0.25rem rgba($cor-laranja, 0.25);
 }
 
@@ -63,12 +65,13 @@ $cor-laranja: #FF6600;
   padding: 0.5rem 1.5rem;
 
   &:hover {
-    background-color: darken($cor-laranja, 10%);
-    border-color: darken($cor-laranja, 10%);
+    background-color: color.adjust($cor-laranja, $lightness: -10%);
+    border-color: color.adjust($cor-laranja, $lightness: -10%);
   }
 
   &:disabled {
-    background-color: lighten($cor-laranja, 15%);
-    border-color: lighten($cor-laranja, 15%);
+    background-color: color.adjust($cor-laranja, $lightness: 15%);
+    border-color: color.adjust($cor-laranja, $lightness: 15%);
   }
 }
+

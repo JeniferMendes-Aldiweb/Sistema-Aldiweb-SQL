@@ -1,6 +1,5 @@
 const sql = require('mssql');
 
-// Carregue as variáveis de ambiente (instale com 'npm install dotenv')
 require('dotenv').config();
 
 const dbConfig = {
@@ -10,19 +9,19 @@ const dbConfig = {
   port: parseInt(process.env.DB_PORT),
   database: process.env.DB_DATABASE,
   options: {
-    encrypt: true, // Para Azure
+    encrypt: true, 
     trustServerCertificate: true // Mude para false em produção com certificados válidos
   }
 };
 
-// Função para conectar ao pool. Chamaremos isso uma vez quando o servidor iniciar.
+// Função para conectar ao pool.  quando o servidor iniciar.
 const connectDB = async () => {
   try {
     await sql.connect(dbConfig);
-    console.log('SQL Server Conectado (Pool)...');
+    console.log('SQL Server Conectado (Pool)');
   } catch (err) {
     console.error('Falha ao conectar ao banco de dados', err);
-    process.exit(1); // Encerra o processo se não conseguir conectar
+    process.exit(1); 
   }
 };
 

@@ -52,10 +52,11 @@
           </div>
         </div>
 
-                <div class="row mb-3">
+        <div class="row mb-3">
           <div class="col-md-6">
             <label for="razao_social" class="form-label">Razão Social</label>
-            <input type="text" id="razao_social" class="form-control" formControlName="razao_social" placeholder="Ex: AldiWeb">
+            <input type="text" id="razao_social" class="form-control" formControlName="razao_social"
+              placeholder="Ex: AldiWeb">
             <div *ngIf="isInvalid('razao_social')" class="invalid-feedback d-block">
               Razão social é obrigatório.
             </div>
@@ -69,18 +70,20 @@
           </div>
         </div>
 
-        
-                <div class="row mb-3">
+
+        <div class="row mb-3">
           <div class="col-md-6">
             <label for="inscricao_estadual" class="form-label">Inscrição estadual</label>
-            <input type="text" id="inscricao_estadual" class="form-control" formControlName="inscricao_estadual" placeholder="Ex: 0000000000000">
+            <input type="text" id="inscricao_estadual" class="form-control" formControlName="inscricao_estadual"
+              placeholder="Ex: 0000000000000">
             <div *ngIf="isInvalid('inscricao_estadual')" class="invalid-feedback d-block">
               A Inscrição estadual é obrigatória.
             </div>
           </div>
           <div class="col-md-6">
             <label for="inscricao_municipal" class="form-label">Inscrição Municipal</label>
-            <input type="text" id="inscricao_municipal" class="form-control" formControlName="inscricao_municipal" placeholder="Ex: 00000000000000">
+            <input type="text" id="inscricao_municipal" class="form-control" formControlName="inscricao_municipal"
+              placeholder="Ex: 00000000000000">
             <div *ngIf="isInvalid('inscricao_municipal')" class="invalid-feedback d-block">
               A Inscrição municipal é obrigatória.
             </div>
@@ -89,7 +92,7 @@
         <!-- Checkbox 'Ativo' -->
         <div class="form-check form-switch mb-4">
           <input class="form-check-input" type="checkbox" role="switch" id="ativo" formControlName="ativo">
-          <label class="form-check-label" for="ativo">Coligada Ativo</label>
+          <label class="form-check-label" for="ativo">Coligada Ativa</label>
         </div>
 
         <!-- Divisor -->

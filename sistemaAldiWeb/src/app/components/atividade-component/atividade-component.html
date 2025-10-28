@@ -1,0 +1,172 @@
+<!-- Um container que dá um fundo suave para a página inteira -->
+<div class="form-background">
+
+  <!-- O cartão principal que contém o formulário -->
+  <div class="form-card shadow-lg">
+
+    <!-- Cabeçalho do Cartão -->
+    <div class="card-header">
+      <h2 class="mb-0">
+        <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
+        Cadastro de Atividades
+      </h2>
+      <p class="text-muted mb-0">Preencha os dados para criar uma nova Atividade no sistema.</p>
+    </div>
+
+    <!-- Corpo do Cartão com o Formulário -->
+    <div class="card-body">
+      <!-- A tag <form> com o binding [formGroup] e o evento (ngSubmit) -->
+      <form [formGroup]="atividadeForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="projeto_id" class="form-label">ID Projeto</label>
+            <input type="text" id="projeto_id" class="form-control" formControlName="projeto_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('projeto_id')" class="invalid-feedback d-block">
+              O código é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="projeto_fase_id" class="form-label">ID Fase Projeto</label>
+            <input type="text" id="projeto_fase_id" class="form-control" formControlName="projeto_fase_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('projeto_fase_id')" class="invalid-feedback d-block">
+              O ID Fase Projeto é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="codigo" class="form-label">Código da Atividade</label>
+            <input type="text" id="codigo" class="form-control" formControlName="codigo" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('codigo')" class="invalid-feedback d-block">
+              O código é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="nome" class="form-label">Nome da Atividade</label>
+            <input type="text" id="nome" class="form-control" formControlName="nome" placeholder="Ex: AldiWeb">
+            <div *ngIf="isInvalid('nome')" class="invalid-feedback d-block">
+              O nome é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" id="descricao" class="form-control" formControlName="descricao" placeholder="Ex: Projeto interno AldiWeb">
+            <div *ngIf="isInvalid('descricao')" class="invalid-feedback d-block">
+             A Descrição é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="ordem" class="form-label">Ordem</label>
+            <input type="text" id="ordem" class="form-control" formControlName="ordem" placeholder="Ex: ">
+            <div *ngIf="isInvalid('ordem')" class="invalid-feedback d-block">
+              A Ordem é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="data_inicio" class="form-label">Data de Início</label>
+            <input type="date" id="data_inicio" class="form-control" formControlName="data_inicio" placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('data_inicio')" class="invalid-feedback d-block">
+              A Data de Início é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="data_fim_prevista" class="form-label">Previsão Data Final</label>
+            <input type="date" id="data_fim_prevista" class="form-control" formControlName="data_fim_prevista" placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('data_fim_prevista')" class="invalid-feedback d-block">
+              A Previsão da Data Final é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="data_fim_real" class="form-label">Data Final Real</label>
+            <input type="date" id="data_fim_real" class="form-control" formControlName="data_fim_real" placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('data_fim_real')" class="invalid-feedback d-block">
+              A Data Final Real é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="horas_estimadas" class="form-label">Horas Estimadas</label>
+            <input type="text" id="horas_estimadas" class="form-control" formControlName="horas_estimadas" placeholder="Ex: 100:00">
+            <div *ngIf="isInvalid('horas_estimadas')" class="invalid-feedback d-block">
+              O Valor Orçado é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="horas_realizadas" class="form-label">Horas Realizadas</label>
+            <input type="text" id="horas_realizadas" class="form-control" formControlName="horas_realizadas" placeholder="Ex: R$1000,00">
+            <div *ngIf="isInvalid('horas_realizadas')" class="invalid-feedback d-block">
+              As Horas Realizadas são obrigatórias.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="percentual_conclusao" class="form-label">Percentual Conclusão</label>
+            <input type="text" id="percentual_conclusao" class="form-control" formControlName="percentual_conclusao" placeholder="Ex: 0 a 100%">
+            <div *ngIf="isInvalid('percentual_conclusao')" class="invalid-feedback d-block">
+              O Percentual De Conclusão é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="status_id" class="form-label">Status ID</label>
+              <input type="text" id="status_id" class="form-control" formControlName="status_id" placeholder="Ex: 1">
+              <div *ngIf="isInvalid('status_id')" class="invalid-feedback d-block">
+                O Status ID é obrigatório.
+              </div>
+            </div>
+          <div class="col-md-6">
+            <label for="responsavel_id" class="form-label">ID Responsável</label>
+            <input type="text" id="responsavel_id" class="form-control" formControlName="responsavel_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('responsavel_id')" class="invalid-feedback d-block">
+              O ID Responsável é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="observacoes" class="form-label">Observações</label>
+            <input type="text" id="observacoes" class="form-control" formControlName="observacoes" placeholder="Ex: Observações">
+            <div *ngIf="isInvalid('observacoes')" class="invalid-feedback d-block">
+              A Observação é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkbox 'Ativo' -->
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="ativo" formControlName="ativo">
+          <label class="form-check-label" for="ativo">Projeto Ativo</label>
+        </div>
+
+        <!-- Divisor -->
+        <hr class="my-4">
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-submit" [disabled]="atividadeForm.invalid">
+            <i class="bi bi-check-lg me-1"></i>
+            Salvar Atividade
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

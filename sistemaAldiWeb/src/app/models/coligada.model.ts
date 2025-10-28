@@ -1,4 +1,4 @@
-    export interface IModulo {
+    export interface Coligada {
   // Propriedades que vêm do formulário e são enviadas para a API
   codigo: string;
   nome: string;

@@ -1,0 +1,199 @@
+<!-- Um container que dá um fundo suave para a página inteira -->
+<div class="form-background">
+
+  <!-- O cartão principal que contém o formulário -->
+  <div class="form-card shadow-lg">
+
+    <!-- Cabeçalho do Cartão -->
+    <div class="card-header">
+      <h2 class="mb-0">
+        <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
+        Cadastro de Projetos
+      </h2>
+      <p class="text-muted mb-0">Preencha os dados para criar um novo Projeto no sistema.</p>
+    </div>
+
+    <!-- Corpo do Cartão com o Formulário -->
+    <div class="card-body">
+      <!-- A tag <form> com o binding [formGroup] e o evento (ngSubmit) -->
+      <form [formGroup]="projetoForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="codigo" class="form-label">Código do projeto</label>
+            <input type="text" id="codigo" class="form-control" formControlName="codigo" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('codigo')" class="invalid-feedback d-block">
+              O código é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="nome" class="form-label">Nome do projeto</label>
+            <input type="text" id="nome" class="form-control" formControlName="nome" placeholder="Ex: AldiWeb">
+            <div *ngIf="isInvalid('nome')" class="invalid-feedback d-block">
+              O nome é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" id="descricao" class="form-control" formControlName="descricao"
+              placeholder="Ex: Sistema interno AldiWeb">
+            <div *ngIf="isInvalid('descricao')" class="invalid-feedback d-block">
+              A Descrição é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="organizacao_id" class="form-label">ID Organização</label>
+            <input type="text" id="organizacao_id" class="form-control" formControlName="organizacao_id"
+              placeholder="Ex: 1">
+            <div *ngIf="isInvalid('organizacao_id')" class="invalid-feedback d-block">
+              O ID Organização é obrigatório.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="contrato_id" class="form-label">ID Contrato</label>
+            <input type="text" id="contrato_id" class="form-control" formControlName="contrato_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('contrato_id')" class="invalid-feedback d-block">
+              O ID Contrato é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="data_inicio" class="form-label">Data de Início</label>
+            <input type="date" id="data_inicio" class="form-control" formControlName="data_inicio"
+              placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('data_inicio')" class="invalid-feedback d-block">
+              A Data de Início é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="data_fim_prevista" class="form-label">Previsão Data Final</label>
+            <input type="date" id="data_fim_prevista" class="form-control" formControlName="data_fim_prevista"
+              placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('data_fim_prevista')" class="invalid-feedback d-block">
+              A Previsão da Data Final é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="data_fim_real" class="form-label">Data Final Real</label>
+            <input type="date" id="data_fim_real" class="form-control" formControlName="data_fim_real"
+              placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('data_fim_real')" class="invalid-feedback d-block">
+              A Data Final Real é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="valor_orcado" class="form-label">Valor Orçado</label>
+            <input type="text" id="valor_orcado" class="form-control" formControlName="valor_orcado"
+              placeholder="Ex: R$1000,00">
+            <div *ngIf="isInvalid('valor_orcado')" class="invalid-feedback d-block">
+              O Valor Orçado é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="valor_realizado" class="form-label">Valor Realizado</label>
+            <input type="text" id="valor_realizado" class="form-control" formControlName="valor_realizado"
+              placeholder="Ex: R$1000,00">
+            <div *ngIf="isInvalid('valor_realizado')" class="invalid-feedback d-block">
+              O Valor Realizado é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="percentual_conclusao" class="form-label">Percentual Conclusão</label>
+            <input type="text" id="percentual_conclusao" class="form-control" formControlName="percentual_conclusao"
+              placeholder="Ex: 0 a 100%">
+            <div *ngIf="isInvalid('percentual_conclusao')" class="invalid-feedback d-block">
+              O Percentual De Conclusão é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="status_id" class="form-label">Status ID</label>
+            <input type="text" id="status_id" class="form-control" formControlName="status_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('status_id')" class="invalid-feedback d-block">
+              O Status ID é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="prioridade" class="form-label">Prioridade</label>
+            <input type="text" id="prioridade" class="form-control" formControlName="prioridade"
+              placeholder="Ex: BAIXA, MEDIA, ALTA, URGENTE">
+            <div *ngIf="isInvalid('prioridade')" class="invalid-feedback d-block">
+              O Nível de Prioridade é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="coligada_id" class="form-label">Coligada ID</label>
+            <input type="text" id="coligada_id" class="form-control" formControlName="coligada_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('coligada_id')" class="invalid-feedback d-block">
+              A Coligada ID é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="filial_id" class="form-label">Filial ID</label>
+            <input type="text" id="filial_id" class="form-control" formControlName="filial_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('filial_id')" class="invalid-feedback d-block">
+              A Filial ID é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="gerente_id" class="form-label">Gerente ID</label>
+            <input type="text" id="gerente_id" class="form-control" formControlName="gerente_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('gerente_id')" class="invalid-feedback d-block">
+              O Gerente ID é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="observacoes" class="form-label">Observações</label>
+            <input type="text" id="observacoes" class="form-control" formControlName="observacoes"
+              placeholder="Ex: Observações">
+            <div *ngIf="isInvalid('observacoes')" class="invalid-feedback d-block">
+              A Observação é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkbox 'Ativo' -->
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="ativo" formControlName="ativo">
+          <label class="form-check-label" for="ativo">Projeto Ativo</label>
+        </div>
+
+        <!-- Divisor -->
+        <hr class="my-4">
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-submit" [disabled]="projetoForm.invalid">
+            <i class="bi bi-check-lg me-1"></i>
+            Salvar Projeto
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

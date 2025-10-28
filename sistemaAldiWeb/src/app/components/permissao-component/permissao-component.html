@@ -1,0 +1,92 @@
+<!-- Um container que dá um fundo suave para a página inteira -->
+<div class="form-background">
+
+  <!-- O cartão principal que contém o formulário -->
+  <div class="form-card shadow-lg">
+
+    <!-- Cabeçalho do Cartão -->
+    <div class="card-header">
+      <h2 class="mb-0">
+        <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
+        Cadastro de Permissões
+      </h2>
+      <p class="text-muted mb-0">Preencha os dados para criar uma nova Permissão no sistema.</p>
+    </div>
+
+    <!-- Corpo do Cartão com o Formulário -->
+    <div class="card-body">
+      <!-- A tag <form> com o binding [formGroup] e o evento (ngSubmit) -->
+      <form [formGroup]="permissaoForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="codigo" class="form-label">Código</label>
+            <input type="text" id="codigo" class="form-control" formControlName="codigo" placeholder="Ex: Perm1">
+            <div *ngIf="isInvalid('codigo')" class="invalid-feedback d-block">
+              O código é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" id="nome" class="form-control" formControlName="nome" placeholder="Ex: VISUALIZAR PROJETO">
+            <div *ngIf="isInvalid('nome')" class="invalid-feedback d-block">
+              O Nome é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" id="descricao" class="form-control" formControlName="descricao" placeholder="Ex: VIZUALIZAÇÃO DE PROJETO">
+            <div *ngIf="isInvalid('descricao')" class="invalid-feedback d-block">
+              A Descrição é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="modulo_id" class="form-label">ID Módulo</label>
+            <input type="text" id="modulo_id" class="form-control" formControlName="modulo_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('modulo_id')" class="invalid-feedback d-block">
+              O ID Módulo é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="recurso" class="form-label">Recurso</label>
+            <input type="text" id="recurso" class="form-control" formControlName="recurso" placeholder="Ex: PROJETO">
+            <div *ngIf="isInvalid('recurso')" class="invalid-feedback d-block">
+              O Recurso é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="acao" class="form-label">Ação</label>
+            <input type="text" id="acao" class="form-control" formControlName="acao" placeholder="Ex: CREATE, UPDATE, READ, DELETE">
+            <div *ngIf="isInvalid('acao')" class="invalid-feedback d-block">
+              A Ação é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkbox 'Ativo' -->
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="ativo" formControlName="ativo">
+          <label class="form-check-label" for="ativo">Permissão Ativa</label>
+        </div>
+
+        <!-- Divisor -->
+        <hr class="my-4">
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-submit" [disabled]="permissaoForm.invalid">
+            <i class="bi bi-check-lg me-1"></i>
+            Salvar Permissão
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

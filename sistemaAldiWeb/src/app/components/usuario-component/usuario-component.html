@@ -1,0 +1,125 @@
+<!-- Um container que dá um fundo suave para a página inteira -->
+<div class="form-background">
+
+  <!-- O cartão principal que contém o formulário -->
+  <div class="form-card shadow-lg">
+
+    <!-- Cabeçalho do Cartão -->
+    <div class="card-header">
+      <h2 class="mb-0">
+        <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
+        Cadastro de Usuários
+      </h2>
+      <p class="text-muted mb-0">Preencha os dados para criar um novo Usuário no sistema.</p>
+    </div>
+
+    <!-- Corpo do Cartão com o Formulário -->
+    <div class="card-body">
+      <!-- A tag <form> com o binding [formGroup] e o evento (ngSubmit) -->
+      <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="pessoa_id" class="form-label">ID Pessoa</label>
+            <input type="text" id="pessoa_id" class="form-control" formControlName="pessoa_id" placeholder="Ex: 1">
+            <div *ngIf="isInvalid('pessoa_id')" class="invalid-feedback d-block">
+              O ID Pessoa é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" id="username" class="form-control" formControlName="username" placeholder="Ex: AldiCube">
+            <div *ngIf="isInvalid('username')" class="invalid-feedback d-block">
+              O Username é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" id="email" class="form-control" formControlName="email" placeholder="Ex: AldiCube@aldiweb.com.br">
+            <div *ngIf="isInvalid('email')" class="invalid-feedback d-block">
+              O Email é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="senha_hash" class="form-label">Senha</label>
+            <input type="text" id="senha_hash" class="form-control" formControlName="senha_hash">
+            <div *ngIf="isInvalid('senha_hash')" class="invalid-feedback d-block">
+              A Senha é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="ultimo_acesso" class="form-label">Último Acesso</label>
+            <input type="date" id="ultimo_acesso" class="form-control" formControlName="ultimo_acesso" placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('ultimo_acesso')" class="invalid-feedback d-block">
+              O Último Acesso é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="tentativas_login" class="form-label">Tentativas Login</label>
+            <input type="text" id="tentativas_login" class="form-control" formControlName="tentativas_login" placeholder="Ex: 5">
+            <div *ngIf="isInvalid('tentativas_login')" class="invalid-feedback d-block">
+               Tentativas de Login é obrigatória.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="bloqueado" formControlName="bloqueado">
+          <label class="form-check-label" for="bloqueado">Bloqueado</label>
+        </div>
+          <div class="col-md-6">
+            <label for="bloqueado_em" class="form-label">Data de Bloqueio</label>
+            <input type="date" id="bloqueado_em" class="form-control" formControlName="bloqueado_em" placeholder="Ex: 00/00/0000">
+            <div *ngIf="isInvalid('bloqueado_em')" class="invalid-feedback d-block">
+              A Data de Bloqueio é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="token_recuperacao" class="form-label">Token De Recuperação</label>
+            <input type="text" id="token_recuperacao" class="form-control" formControlName="token_recuperacao" placeholder="Ex: 58U3C8DA8GGA8E2">
+            <div *ngIf="isInvalid('token_recuperacao')" class="invalid-feedback d-block">
+              O Token De Recuperação é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="token_expiracao" class="form-label">Token Expiração</label>
+            <input type="text" id="token_expiracao" class="form-control" formControlName="token_expiracao" placeholder="Ex: 58U3C8DA8GGA8E2">
+            <div *ngIf="isInvalid('token_expiracao')" class="invalid-feedback d-block">
+              Token Expiração é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkbox 'Ativo' -->
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="ativo" formControlName="ativo">
+          <label class="form-check-label" for="ativo">Usuário Ativo</label>
+        </div>
+
+        <!-- Divisor -->
+        <hr class="my-4">
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-submit" [disabled]="usuarioForm.invalid">
+            <i class="bi bi-check-lg me-1"></i>
+            Salvar Usuário
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

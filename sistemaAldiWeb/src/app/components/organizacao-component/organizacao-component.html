@@ -1,0 +1,159 @@
+<!-- Um container que dá um fundo suave para a página inteira -->
+<div class="form-background">
+
+  <!-- O cartão principal que contém o formulário -->
+  <div class="form-card shadow-lg">
+
+    <!-- Cabeçalho do Cartão -->
+    <div class="card-header">
+      <h2 class="mb-0">
+        <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
+        Cadastro de Organização
+      </h2>
+      <p class="text-muted mb-0">Preencha os dados para criar uma Organização no sistema.</p>
+    </div>
+
+    <!-- Corpo do Cartão com o Formulário -->
+    <div class="card-body">
+      <!-- A tag <form> com o binding [formGroup] e o evento (ngSubmit) -->
+      <form [formGroup]="organizacaoForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="tipo" class="form-label">Tipo</label>
+            <input type="text" id="tipo" class="form-control" formControlName="tipo" placeholder="Ex: FORNECEDOR">
+            <div *ngIf="isInvalid('tipo')" class="invalid-feedback d-block">
+              O tipo é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="codigo" class="form-label">Código</label>
+            <input type="text" id="codigo" class="form-control" formControlName="codigo" placeholder="Ex: 123">
+            <div *ngIf="isInvalid('codigo')" class="invalid-feedback d-block">
+              O Código é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="nome_fantasia" class="form-label">Nome Fantasia</label>
+            <input type="text" id="nome_fantasia" class="form-control" formControlName="nome_fantasia"
+              placeholder="Ex: AldiWeb">
+            <div *ngIf="isInvalid('nome_fantasia')" class="invalid-feedback d-block">
+              O Nome Fantasia é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="razao_social" class="form-label">Razão Social</label>
+            <input type="text" id="razao_social" class="form-control" formControlName="razao_social"
+              placeholder="Ex: AldiWeb">
+            <div *ngIf="isInvalid('razao_social')" class="invalid-feedback d-block">
+              A Razão Social é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="cnpj_cpf" class="form-label">CNPJ ou CPF</label>
+            <input type="text" id="cnpj_cpf" class="form-control" formControlName="cnpj_cpf"
+              placeholder="Ex: 00000000000">
+            <div *ngIf="isInvalid('cnpj_cpf')" class="invalid-feedback d-block">
+              O CNPJ ou CPF é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" id="telefone" class="form-control" formControlName="telefone"
+              placeholder="Ex: 31912345678">
+            <div *ngIf="isInvalid('telefone')" class="invalid-feedback d-block">
+              O Telefone é obrigatório.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="inscricao_estadual" class="form-label">Inscrição Estadual</label>
+            <input type="text" id="inscricao_estadual" class="form-control" formControlName="inscricao_estadual"
+              placeholder="Ex: 00000000">
+            <div *ngIf="isInvalid('inscricao_estadual')" class="invalid-feedback d-block">
+              A Inscrição Estadual obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="inscricao_municipal" class="form-label">Inscrição Municipal</label>
+            <input type="text" id="inscricao_municipal" class="form-control" formControlName="inscricao_municipal"
+              placeholder="Ex: 00000000">
+            <div *ngIf="isInvalid('inscricao_municipal')" class="invalid-feedback d-block">
+              A Inscrição Municipal é obrigatória.
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" id="email" class="form-control" formControlName="email"
+              placeholder="Ex: contato@aldiweb.com.br">
+            <div *ngIf="isInvalid('email')" class="invalid-feedback d-block">
+              O Email é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="site" class="form-label">Site</label>
+            <input type="text" id="site" class="form-control" formControlName="site" placeholder="Ex: aldiweb.com.br">
+            <div *ngIf="isInvalid('site')" class="invalid-feedback d-block">
+              O Site é obrigatório.
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="coligada_id" class="form-label">ID Coligada</label>
+            <input type="text" id="coligada_id" class="form-control" formControlName="coligada_id" placeholder="Ex: 0">
+            <div *ngIf="isInvalid('coligada_id')" class="invalid-feedback d-block">
+              O ID da Coligada é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="filial_id" class="form-label">ID Filial</label>
+            <input type="text" id="filial_id" class="form-control" formControlName="filial_id" placeholder="Ex: 0">
+            <div *ngIf="isInvalid('filial_id')" class="invalid-feedback d-block">
+              O ID da Filial é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <label for="observacoes" class="form-label">Observação</label>
+            <input type="text" id="observacoes" class="form-control" formControlName="observacoes"
+              placeholder="Ex: Empresa Parceira">
+            <div *ngIf="isInvalid('observacoes')" class="invalid-feedback d-block">
+              A Obesevação é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="ativo" formControlName="ativo">
+          <label class="form-check-label" for="ativo">Organização Ativa</label>
+        </div>
+        <!-- Divisor -->
+        <hr class="my-4">
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-submit" [disabled]="organizacaoForm.invalid">
+            <i class="bi bi-check-lg me-1"></i>
+            Salvar Organização
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

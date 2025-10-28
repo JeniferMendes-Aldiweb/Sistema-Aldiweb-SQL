@@ -8,7 +8,7 @@ const createEndereco = async (req, res) => {
     const result = await createEnderecoQuery(novoEndereco);
     res.status(201).json(result);
   } catch (error) {
-    console.error('Erro no controller ao criar Endereco:', error);
+    console.error('Erro no controller ao criar Endereço:', error);
     res.status(500).json({ error: 'Erro interno do servidor.' });
   }
 };

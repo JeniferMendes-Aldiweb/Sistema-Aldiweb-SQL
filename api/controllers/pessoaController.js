@@ -1,14 +1,11 @@
-// controllers/pessoas.controller.js
+const { createPessoaQuery } = require('../db_Querys/db_pessoa.js');
 
-// Não precisa mais do express-validator aqui
-const { createPessoaQuery, findAllPessoasQuery } = require('../db_Querys/db_pessoa');
-
-// Controlador para criar uma pessoa
 const createPessoa = async (req, res) => {
   try {
-    // A validação já aconteceu, então podemos usar os dados com segurança
-    const novaPessoa = req.body;
-    const result = await createPessoaQuery(novaPessoa);
+    // Para created_by, você pegaria o ID do usuário logado a partir do token JWT, por exemplo.
+    // Por enquanto, vamos simular que ele vem no corpo da requisição.
+    const novoPessoa = req.body;
+    const result = await createPessoaQuery(novoPessoa);
     res.status(201).json(result);
   } catch (error) {
     console.error('Erro no controller ao criar pessoa:', error);
@@ -16,18 +13,6 @@ const createPessoa = async (req, res) => {
   }
 };
 
-// Controlador para listar todas as pessoas
-const getAllPessoas = async (req, res) => {
-  try {
-    const pessoas = await findAllPessoasQuery();
-    res.status(200).json(pessoas);
-  } catch (error) {
-    console.error('Erro no controller ao listar pessoas:', error);
-    res.status(500).json({ error: 'Erro interno do servidor.' });
-  }
-};
-
 module.exports = {
   createPessoa,
-  getAllPessoas,
 };

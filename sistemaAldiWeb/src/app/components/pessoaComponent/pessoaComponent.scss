@@ -1,48 +1,77 @@
-// Variáveis para cores e estilos
-$form-background: #ffffff;
-$container-background: #f0f2f5;
-$primary-color: #0d6efd;
-$border-radius: 12px;
-$box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+@use "sass:color";
 
-.form-container {
-  min-height: 100vh;
-  background-color: $container-background;
+// Variável para a cor laranja principal, facilitando a manutenção
+$cor-laranja: #FF6600;
+
+// Estilo para o fundo da página
+.form-background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; // Ocupa a altura inteira da tela
+  padding: 2rem;
+  background-color: #f4f7f6; // Um cinza bem claro e suave
+}
+
+// Estilo para o cartão do formulário
+.form-card {
+  width: 100%;
+  max-width: 900px; // Define uma largura máxima para telas grandes
+  border: none;
+  border-radius: 0.75rem; // Bordas mais arredondadas
+}
+
+.card-header {
+  background-color: white;
+  border-bottom: 1px solid #dee2e6;
+  padding: 1.5rem;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+
+  h2 {
+    color: #333;
+    font-weight: 600;
+  }
+}
+
+.card-body {
   padding: 1.5rem;
 }
 
-.form-card {
-  background-color: $form-background;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-  width: 100%;
-  max-width: 480px; // Largura máxima do formulário
-  border: 1px solid #dee2e6;
+// Personalização dos elementos do formulário
+.form-label {
+  font-weight: 500;
+  color: #555;
 }
 
-.form-title {
-  font-weight: 700;
-  color: #333;
-}
-
-.form-subtitle {
-  font-size: 0.95rem;
-}
-
-// Estilo para os inputs quando focados
+// Foco dos inputs com a cor laranja
 .form-control:focus {
-  border-color: $primary-color;
-  box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.25);
+  border-color: color.adjust($cor-laranja, $lightness: 25%);
+  box-shadow: 0 0 0 0.25rem rgba($cor-laranja, 0.25);
 }
 
-// Efeito de transição suave para o botão
-.btn-primary {
-  transition: all 0.3s ease-in-out;
-  font-weight: 600;
-  padding: 0.75rem 1.25rem;
+// Estilo do switch 'ativo' quando ligado
+.form-check-input:checked {
+  background-color: $cor-laranja;
+  border-color: $cor-laranja;
+}
+
+// Botão de submit personalizado
+.btn-submit {
+  background-color: $cor-laranja;
+  border-color: $cor-laranja;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+    background-color: color.adjust($cor-laranja, $lightness: -10%);
+    border-color: color.adjust($cor-laranja, $lightness: -10%);
+  }
+
+  &:disabled {
+    background-color: color.adjust($cor-laranja, $lightness: 15%);
+    border-color: color.adjust($cor-laranja, $lightness: 15%);
   }
 }
+

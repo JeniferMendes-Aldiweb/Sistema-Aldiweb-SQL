@@ -1,0 +1,88 @@
+<!-- Um container que dá um fundo suave para a página inteira -->
+<div class="form-background">
+
+  <!-- O cartão principal que contém o formulário -->
+  <div class="form-card shadow-lg">
+
+    <!-- Cabeçalho do Cartão -->
+    <div class="card-header">
+      <h2 class="mb-0">
+        <i class="bi bi-box-seam me-2"></i> <!-- Ícone do Bootstrap -->
+        Cadastro de Deflatores
+      </h2>
+      <p class="text-muted mb-0">Preencha os dados para criar um novo Deflator no sistema.</p>
+    </div>
+
+    <!-- Corpo do Cartão com o Formulário -->
+    <div class="card-body">
+      <!-- A tag <form> com o binding [formGroup] e o evento (ngSubmit) -->
+      <form [formGroup]="deflatorForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="codigo" class="form-label">Código do Deflator</label>
+            <input type="text" id="codigo" class="form-control" formControlName="codigo" placeholder="Ex: IPCA">
+            <div *ngIf="isInvalid('codigo')" class="invalid-feedback d-block">
+              O código é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" id="nome" class="form-control" formControlName="nome"
+              placeholder="Ex: Índice de Preços ao Consumidor Amplo">
+            <div *ngIf="isInvalid('nome')" class="invalid-feedback d-block">
+              O nome é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" id="descricao" class="form-control" formControlName="descricao"
+              placeholder="Ex: Índice de Preços">
+            <div *ngIf="isInvalid('descricao')" class="invalid-feedback d-block">
+              A Descrição é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="tipo" class="form-label">Tipo</label>
+            <input type="text" id="tipo" class="form-control" formControlName="tipo" placeholder="Ex: INFLACÃO">
+            <div *ngIf="isInvalid('tipo')" class="invalid-feedback d-block">
+              O Tipo é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="fonte" class="form-label">Fonte</label>
+            <input type="text" id="fonte" class="form-control" formControlName="fonte" placeholder="Ex: IBGE">
+            <div *ngIf="isInvalid('fonte')" class="invalid-feedback d-block">
+              A Fonte é obrigatória.
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkbox 'Ativo' -->
+        <div class="form-check form-switch mb-4">
+          <input class="form-check-input" type="checkbox" role="switch" id="ativo" formControlName="ativo">
+          <label class="form-check-label" for="ativo">Deflator Ativo</label>
+        </div>
+
+        <!-- Divisor -->
+        <hr class="my-4">
+
+        <!-- Botões de Ação -->
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-submit" [disabled]="deflatorForm.invalid">
+            <i class="bi bi-check-lg me-1"></i>
+            Salvar Deflator
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
