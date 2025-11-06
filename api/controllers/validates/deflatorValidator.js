@@ -3,10 +3,15 @@ const { body, validationResult } = require('express-validator');
 const validateDeflator = [
   // Regras de validação para os campos principais
   body('codigo').notEmpty().withMessage('O código é obrigatório.'),
+  
   body('nome').notEmpty().withMessage('O nome é obrigatório.'),
-  body('descricao').notEmpty().withMessage('A descrição é obrigatória.'),
+  
+  body('descricao').optional().isString().withMessage('A descrição é obrigatória.'),
+  
   body('tipo').notEmpty().withMessage('O tipo é obrigatório.'),
+  
   body('fonte').notEmpty().withMessage('A fonte é obrigatória.'),
+  
   body('ativo').isBoolean().withMessage('O campo "ativo" deve ser verdadeiro ou falso.'),
 
   // Middleware que verifica os resultados
