@@ -22,7 +22,7 @@ export class EnderecoComponent implements OnInit {
   ngOnInit(): void {
     this.enderecoForm = this.fb.group({
       // Define os controles do formulário e suas validações
-      cep: ['', [Validators.required]],
+      cep: ['',[Validators.pattern(/^\d{8}$/)]],
       logradouro: ['', [Validators.required]],
       numero: ['', [Validators.required]],
       complemento: [''], // Campo opcional
@@ -30,8 +30,8 @@ export class EnderecoComponent implements OnInit {
       cidade: [''],     // Campo opcional
       estado: [''],     // Campo opcional
       pais: ['', [Validators.required]],     // Campo opcional
-      latitude: ['', [Validators.required]],
-      longitude: ['', [Validators.required]]
+      latitude: ['',[Validators.required, Validators.pattern(/^[-+]?[0-9]{1,2}(\.[0-9]{1,6})?$/) ]],
+      longitude: ['',[Validators.required, Validators.pattern(/^[-+]?(180(\.0{1,6})?|((1[0-7][0-9])|([0-9]{1,2}))(\.[0-9]{1,6})?)$/) ]]
       // Opcional: Adicione created_by se precisar enviar.
       // Por enquanto, vamos assumir que a API cuida disso.
       // created_by: [1, [Validators.required]] 

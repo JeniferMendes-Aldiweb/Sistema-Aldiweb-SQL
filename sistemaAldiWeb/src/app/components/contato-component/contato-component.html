@@ -58,8 +58,7 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="telefone" class="form-label">Telefone</label>
-            <input type="text" id="telefone" class="form-control" formControlName="telefone"
-              placeholder="Ex: (31) 92345-6789">
+            <input type="text" id="telefone" class="form-control" formControlName="telefone" pattern="^\d{10,11}$" maxlength="11" placeholder="Ex: 31912345678">
             <div *ngIf="isInvalid('telefone')" class="invalid-feedback d-block">
               O Telefone é obrigatório.
             </div>

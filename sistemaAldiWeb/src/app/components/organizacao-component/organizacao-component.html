@@ -21,7 +21,13 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="tipo" class="form-label">Tipo</label>
-            <input type="text" id="tipo" class="form-control" formControlName="tipo" placeholder="Ex: FORNECEDOR">
+            <select id="tipo" class="form-control" formControlName="tipo" required>
+              <option value="" disabled selected>Selecione o tipo</option>
+              <option value="CLIENTE">CLIENTE</option>
+              <option value="FORNECEDOR">FORNECEDOR</option>
+              <option value="PARCEIRO">PARCEIRO</option>
+              <option value="PROSPECT">PROSPECT</option>
+            </select>
             <div *ngIf="isInvalid('tipo')" class="invalid-feedback d-block">
               O tipo é obrigatório.
             </div>
@@ -57,28 +63,25 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="cnpj_cpf" class="form-label">CNPJ ou CPF</label>
-            <input type="text" id="cnpj_cpf" class="form-control" formControlName="cnpj_cpf"
-              placeholder="Ex: 00000000000">
+            <input type="text" id="cnpj_cpf" class="form-control" formControlName="cnpj_cpf" pattern="^\d{11,14}$" maxlength="14" placeholder="Ex: 00000000000">
             <div *ngIf="isInvalid('cnpj_cpf')" class="invalid-feedback d-block">
               O CNPJ ou CPF é obrigatório.
             </div>
           </div>
           <div class="col-md-6">
             <label for="telefone" class="form-label">Telefone</label>
-            <input type="text" id="telefone" class="form-control" formControlName="telefone"
-              placeholder="Ex: 31912345678">
+            <input type="text" id="telefone" class="form-control" formControlName="telefone" pattern="^\d{10,11}$" maxlength="11" placeholder="Ex: 31912345678">
             <div *ngIf="isInvalid('telefone')" class="invalid-feedback d-block">
               O Telefone é obrigatório.
             </div>
           </div>
         </div>
 
-
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="inscricao_estadual" class="form-label">Inscrição Estadual</label>
             <input type="text" id="inscricao_estadual" class="form-control" formControlName="inscricao_estadual"
-              placeholder="Ex: 00000000">
+              pattern="^\d{9,14}$" maxlength="14" placeholder="Ex: 0000000000000">
             <div *ngIf="isInvalid('inscricao_estadual')" class="invalid-feedback d-block">
               A Inscrição Estadual obrigatória.
             </div>
@@ -86,7 +89,7 @@
           <div class="col-md-6">
             <label for="inscricao_municipal" class="form-label">Inscrição Municipal</label>
             <input type="text" id="inscricao_municipal" class="form-control" formControlName="inscricao_municipal"
-              placeholder="Ex: 00000000">
+              pattern="^\d{6,14}$" maxlength="14" placeholder="Ex: 00000000000000">
             <div *ngIf="isInvalid('inscricao_municipal')" class="invalid-feedback d-block">
               A Inscrição Municipal é obrigatória.
             </div>
@@ -112,14 +115,16 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="coligada_id" class="form-label">ID Coligada</label>
-            <input type="text" id="coligada_id" class="form-control" formControlName="coligada_id" placeholder="Ex: 0">
+            <input type="text" id="coligada_id" class="form-control" formControlName="coligada_id" min="0"
+              placeholder="Ex: 0">
             <div *ngIf="isInvalid('coligada_id')" class="invalid-feedback d-block">
               O ID da Coligada é obrigatório.
             </div>
           </div>
           <div class="col-md-6">
             <label for="filial_id" class="form-label">ID Filial</label>
-            <input type="text" id="filial_id" class="form-control" formControlName="filial_id" placeholder="Ex: 0">
+            <input type="text" id="filial_id" class="form-control" formControlName="filial_id" min="0"
+              placeholder="Ex: 0">
             <div *ngIf="isInvalid('filial_id')" class="invalid-feedback d-block">
               O ID da Filial é obrigatório.
             </div>

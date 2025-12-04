@@ -21,7 +21,7 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="cep" class="form-label">Cep</label>
-            <input type="text" id="cep" class="form-control" formControlName="cep" placeholder="Ex: 00000000">
+            <input type="text" id="cep" class="form-control" formControlName="cep" pattern="^\d{8}$" maxlength="8" placeholder="Ex: 00000000">
             <div *ngIf="isInvalid('cep')" class="invalid-feedback d-block">
               A Cep é obrigatório.
             </div>
@@ -75,7 +75,7 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="estado" class="form-label">Estado(UF)</label>
-            <input type="text" id="estado" class="form-control" formControlName="estado" placeholder="Ex: MG">
+            <input type="text" id="estado" class="form-control" formControlName="estado" maxlength="2" placeholder="Ex: MG">
             <div *ngIf="isInvalid('estado')" class="invalid-feedback d-block">
               O Estado obrigatório.
             </div>
@@ -91,15 +91,14 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="latitude" class="form-label">Latitude</label>
-            <input type="text" id="latitude" class="form-control" formControlName="latitude" placeholder="Ex: 00000000">
+            <input type="text" id="latitude" class="form-control" formControlName="latitude" step="0.000001" min="-90" max="90" placeholder="Ex: 00000000">
             <div *ngIf="isInvalid('latitude')" class="invalid-feedback d-block">
               A Latitude é obrigatória.
             </div>
           </div>
           <div class="col-md-6">
             <label for="longitude" class="form-label">Longitude</label>
-            <input type="text" id="longitude" class="form-control" formControlName="longitude"
-              placeholder="Ex: 00000000">
+            <input type="text" id="longitude" class="form-control" formControlName="longitude" step="0.000001" min="-180" max="180" placeholder="Ex: 00000000">
             <div *ngIf="isInvalid('longitude')" class="invalid-feedback d-block">
               A longitude é obrigatória.
             </div>

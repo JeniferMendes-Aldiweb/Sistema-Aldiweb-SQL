@@ -12,7 +12,7 @@ const validatePessoa = [
   
   body('rg').notEmpty().withMessage('O rg é obrigatório.')
   .isNumeric().withMessage('O campo rg deve conter apenas números.')
-  .isLength({ min: 7, max: 9 }).withMessage('O rg deve ter entre 7 e 9 dígitos.'),
+  .isLength({ min: 9, max: 11 }).withMessage('O rg deve ter entre 7 e 9 dígitos.'),
   
   body('data_nascimento').notEmpty().withMessage('A data de nascimento é obrigatória.')
   .isISO8601().withMessage('A data_nascimento deve estar em formato válido (AAAA-MM-DD).'),

@@ -16,11 +16,11 @@ const validateOrganizacao = [
   
   body('inscricao_estadual').notEmpty().withMessage('A inscricao_estadual é obrigatório.')
   .isNumeric().withMessage('O campo inscricao_estadual deve conter apenas números.')
-  .isLength({ min: 9, max: 12 }).withMessage('A inscricao_estadual deve ter entre 9 e 12 dígitos.'),
+  .isLength({ min: 9, max: 14 }).withMessage('A inscricao_estadual deve ter entre 9 e 12 dígitos.'),
 
   body('inscricao_municipal').notEmpty().withMessage('A inscricao_municipal é obrigatório.')
   .isNumeric().withMessage('O campo inscricao_municipal deve conter apenas números.')
-  .isLength({ min: 9, max: 12 }).withMessage('A inscricao_municipal deve ter entre 9 e 12 dígitos.'),
+  .isLength({ min: 6, max: 14 }).withMessage('A inscricao_municipal deve ter entre 9 e 12 dígitos.'),
 
   body('email').notEmpty().withMessage('O email é obrigatório.'),
   

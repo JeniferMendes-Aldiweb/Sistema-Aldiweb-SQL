@@ -25,9 +25,9 @@ export class ColigadaComponent implements OnInit {
       codigo: ['', [Validators.required]],
       nome: ['', [Validators.required]],
       razao_social: [''], // Campo opcional
-      cnpj: ['', [Validators.required]],
-      inscricao_estadual: [''],     // Campo opcional
-      inscricao_municipal: [''],     // Campo opcional
+      cnpj: ['',[Validators.pattern(/^\d{14}$/)]],
+      inscricao_estadual: ['',[Validators.required, Validators.pattern(/^\d{9,14}$/)]],
+      inscricao_municipal: ['',[Validators.required, Validators.pattern(/^\d{6,14}$/)]],    
       ativo: [true],
       // Opcional: Adicione created_by se precisar enviar.
       // Por enquanto, vamos assumir que a API cuida disso.

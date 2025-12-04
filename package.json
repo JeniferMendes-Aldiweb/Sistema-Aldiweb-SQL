@@ -3,6 +3,6 @@
     "concurrently": "^9.2.1"
   },
   "scripts": {
-  "start": "concurrently \"cd sistemaAldiWeb && npm start\" \"cd api && npm start\""
-}
+    "start": "concurrently \"cd sistemaAldiWeb && npm start\" \"cd api && npm start\""
+  }
 }

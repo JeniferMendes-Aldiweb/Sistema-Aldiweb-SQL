@@ -4,12 +4,13 @@ const { body, validationResult } = require('express-validator');
 const validateEndereco = [
   // Regras de validação para os campos principais
   body('cep').notEmpty().withMessage('O cep é obrigatório.')
-  .isNumeric().withMessage('O campo cep deve conter apenas números.'),
+  .isNumeric().withMessage('O campo cep deve conter apenas números.')
+   .isLength({ min: 8, max: 8 }).withMessage('O cep deve ter entre 9 e 12 dígitos.'),
   
   body('logradouro').notEmpty().withMessage('O logradouro é obrigatório.'),
   
   body('numero').notEmpty().withMessage('O numero é obrigatório.')
-  .isNumeric().withMessage('O campo cep deve conter apenas números.'),
+  .isNumeric().withMessage('O campo numero deve conter apenas números.'),
   
   body('complemento').notEmpty().withMessage('O complemento é obrigatório.'),
   

@@ -63,7 +63,7 @@
           </div>
           <div class="col-md-6">
             <label for="cnpj" class="form-label">Cnpj</label>
-            <input type="text" id="cnpj" class="form-control" formControlName="cnpj" placeholder="Ex: 00000000000000">
+            <input type="text" id="cnpj" class="form-control" formControlName="cnpj" pattern="^\d{14}$" maxlength="14" placeholder="Ex: 00000000000000">
             <div *ngIf="isInvalid('cnpj')" class="invalid-feedback d-block">
               O cnpj é obrigatório.
             </div>
@@ -74,16 +74,14 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="inscricao_estadual" class="form-label">Inscrição estadual</label>
-            <input type="text" id="inscricao_estadual" class="form-control" formControlName="inscricao_estadual"
-              placeholder="Ex: 0000000000000">
+            <input type="text" id="inscricao_estadual" class="form-control" formControlName="inscricao_estadual" pattern="^\d{9,14}$" maxlength="14" placeholder="Ex: 0000000000000">
             <div *ngIf="isInvalid('inscricao_estadual')" class="invalid-feedback d-block">
               A Inscrição estadual é obrigatória.
             </div>
           </div>
           <div class="col-md-6">
             <label for="inscricao_municipal" class="form-label">Inscrição Municipal</label>
-            <input type="text" id="inscricao_municipal" class="form-control" formControlName="inscricao_municipal"
-              placeholder="Ex: 00000000000000">
+            <input type="text" id="inscricao_municipal" class="form-control" formControlName="inscricao_municipal" pattern="^\d{6,14}$" maxlength="14" placeholder="Ex: 00000000000000">
             <div *ngIf="isInvalid('inscricao_municipal')" class="invalid-feedback d-block">
               A Inscrição municipal é obrigatória.
             </div>

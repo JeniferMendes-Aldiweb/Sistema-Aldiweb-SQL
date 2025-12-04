@@ -46,8 +46,13 @@
           </div>
           <div class="col-md-6">
             <label for="categoria" class="form-label">Categoria</label>
-            <input type="text" id="categoria" class="form-control" formControlName="categoria"
-              placeholder="Ex: TECNICA">
+            <select id="categoria" class="form-control" formControlName="categoria" required>
+              <option value="" disabled selected>Selecione a Categoria</option>
+              <option value="TECNICA">TECNICA</option>
+              <option value="COMPORTAMENTAL">COMPORTAMENTAL</option>
+              <option value="IDIOMA">IDIOMA</option>
+              <option value="CERTIFICACAO">CERTIFICACAO</option>
+            </select>
             <div *ngIf="isInvalid('categoria')" class="invalid-feedback d-block">
               A Categoria é obrigatória.
             </div>
